@@ -70,3 +70,43 @@ main{
 .a:hover{
     text-decoration: underline;
 }
+.cvr-img2 img{
+    width: 100%;
+} 
+.watches h3{
+    position: absolute;
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+.product{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+.item{
+    height: 100%;
+    width: 385px;
+}
+.item:hover{
+    border: 1px solid black;
+    transform: scale(1);
+}
+.text{
+    margin-left: 8px;
+   }
+.product img{
+    height: 100%;
+    width: 383px;
+    background-color: aliceblue;
+}
+.product2{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+}
+.product2 img{
+    height: 100%;
+    width: 383px;
+    background-color: aliceblue;
+}
