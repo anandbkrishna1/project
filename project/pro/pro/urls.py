@@ -23,6 +23,10 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='home'),
+    path('signup/',views.signup,name='signup'),
+    path('login/',views.user_login,name='user_login'),
+
+
         
 ]
 if settings.DEBUG:
