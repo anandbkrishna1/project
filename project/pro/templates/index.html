@@ -13,6 +13,89 @@
 
   </head>
   <style>
+    main{
+      height: 100svh;
+      width: 100vw;
+  }
+  .head-nav{
+      width: 100vw;
+      height: 3vh;
+      background-color: black;
+      /* display: flex; */
+      /* color: white; */
+      
+  }
+  .Announcement_bar{
+      color: white;
+      align-items: center;
+      /* margin-right: 50px; */
+  }
+  .nav-bar{
+      display: flex;
+      justify-content: space-between; 
+      box-sizing: border-box;
+      width: 100vw;
+      height: 55px;
+      background-color: white;
+      align-items: center;
+    
+  
+  }
+  .options{
+      display: flex;
+      color: black;
+      margin-right: 10rem;
+      font-size: 20px;
+      margin-top: 12px;
+      
+  }
+  .o{
+      margin-top: 20px;
+      margin-right: 3rem; 
+  }
+  .o:hover{
+      color: red;
+  }
+  
+  .d-flex{
+      margin-top: 18px;
+      margin-left: 5rem;
+  }
+  .form-control{
+      width: 650px;
+  }
+  .sub-nav{
+      position: relative;
+      display: flex;
+      width: 100vw;
+      height: 70px;
+      /* background-color: aqua; */
+      align-items: center ;
+  }
+  .spans{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      padding: 20px;
+      font-size: 15px;
+      padding-top: 1px;
+  }
+  .a{
+    padding: 3rem;
+  }
+  
+  .a:hover{
+      text-decoration: underline;
+  }
+  .cvr-img2 img{
+      width: 100%;
+  } 
+
+
+
+
+
     .o{
       text-decoration: none;
     }
@@ -32,6 +115,7 @@
     .links{
       text-decoration: none;
     }
+    
     .site-footer
 {
   background-color:#26272b;
@@ -235,28 +319,21 @@
         </div>
     </div>
     <hr>
-    <div class="sub-nav">
-      <div class="spans">
-        <a href="" style="text-decoration: none;"><span class="a pmen">MEN</span></a>
-        <a href="" style="text-decoration: none;"><span class="a pwomen">WOMEN</span></a>
-        <a href="" style="text-decoration: none;"><span class="a pspecial">PREMIUM WATCHES</span></a>
-        <a href="" style="text-decoration: none;"><span class="a psale" style="color: red;">SALE</span></a>
-        <a href="" style="text-decoration: none;"><span class="a pmen">ALL WATCHES</span></a>
-
+    <div class=" container-fluid sub-nav">
+      <div class=" spans">
+          <a href="" style="text-decoration: none;"><span class="a pmen">MEN</span></a>
+          <a href="" style="text-decoration: none;"><span class="a pwomen">WOMEN</span></a>
+          <a href="" style="text-decoration: none;"><span class="a pspecial">PREMIUM WATCHES</span></a>
+          <a href="" style="text-decoration: none;"><span class="a psale" style="color: red;">SALE</span></a>
+          <a href="{% url 'all' %}" style="text-decoration: none;"><span class="a pmen">ALL WATCHES</span></a>
+  
+        
 
         <a href="">
           <span class=" a icon material-symbols-rounded">
           shopping_cart
           </span>
         </a>
-          <!-- <span class="a pboys">KIDS</span> -->
-          
-          <!-- <span class="a pmen">UNISEX</span> -->
-          <!-- <span class="a pnew">NEW ARRIVALS</span> -->
-          <!-- <span class="a pmen">PRICE</span> -->
-          <!-- <span class=" a icon  material-symbols-rounded">
-            favorite
-          </span> -->
           
       </div>
   </div>
@@ -309,8 +386,6 @@
                     <h5 class="card-title txt"  id="name" name="name">{{i.name}}</h5>
                     <p  class="txt"  style="font-size: smaller;">MRP</p>
                     <p class="card-text txt"  id="price" name="price">{{i.price}}</p>
-                    <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-danger">ADD TO CART</a>
-                    <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-warning">BUY NOW</a> -->
                   </div>
               </div>
               </a>
@@ -320,7 +395,7 @@
         {% endfor %}
       </div>
   </div>
-  </div>
+</div>
  
 
   <div class="cvr-img" style="margin-top: 2rem;">
@@ -360,7 +435,7 @@
 
   <!-- Remove the container if you want to extend the Footer to full width. -->
     <!-- Site footer -->
-    <footer class="site-footer">
+    <footer class="site-footer mt-3">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">

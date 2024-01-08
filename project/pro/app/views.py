@@ -52,6 +52,12 @@ def user_login (request):
             return redirect(user_login)
     return render(request,'login.html')
 
+def all(request):
+    content=Watch.objects.all()
+    data={
+        'result':content
+    }
+    return render(request,'all.html',data)
 
 
 # def home(request):
