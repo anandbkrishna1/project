@@ -289,6 +289,14 @@
   color: black;
   text-decoration: none;
 }
+.fa-solid{
+  margin-top: 1.5rem;
+  
+}
+.fa-solid:hover{
+  color: red;
+}
+
 
 
 
@@ -312,11 +320,23 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         <div class="options">
-            <a  class="o" href="#" style="color: black;">STORE</a>
-            <a  class="o" href="#" style="color: black;">CONTACT</a>
-            <a  class="o" href="{% url 'signup' %}" style="color: black;">LOGIN</a>
-            {% if request.user.is_authenticated %}
-            <h3>{{request.user.username}}</h3>
+            <!-- <a  class="o" href="#" style="color: black;">STORE</a>
+            <a  class="o" href="#" style="color: black;">CONTACT</a> -->
+            <ul class="nav-item dropdown">
+              <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bars"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'signup' %}">signup</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'user_login' %}">Login</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </ul>
+          
+            <!-- <a  class="o" href="{% url 'signup' %}" style="color: black;">LOGIN</a> -->
+            {% if user.is_authenticated %}
+            <h1>{{user}}</h1>
             {% else %}
             <h3>visitor</h3>
             {% endif %}            
@@ -389,7 +409,7 @@
                     <h5 class="card-title txt"  id="brand" name="brand">{{i.brand}}</h5>
                     <h5 class="card-title txt"  id="name" name="name">{{i.name}}</h5>
                     <p  class="txt"  style="font-size: smaller;">MRP</p>
-                    <p class="card-text txt"  id="price" name="price">{{i.price}}</p>
+                    <p class="card-text txt"  id="price" name="price">₹{{i.price}}</p>
                   </div>
               </div>
               </a>
@@ -421,7 +441,7 @@
                     <h5 class="card-title txt"  id="brand" name="brand" >{{i.brand}}</h5>
                     <h5 class="card-title txt text-truncate"  id="name" name="name" >{{i.name}}</h5>
                     <p class="txt"  style="font-size: smaller;">MRP</p>
-                    <p class="card-text txt"  id="price" name="price" >{{i.price}}</p>
+                    <p class="card-text txt"  id="price" name="price" >₹{{i.price}}</p>
                     <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-danger">ADD TO CART</a>
                     <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-warning">BUY NOW</a> -->
                   </div>

@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from .models import Watch
 from .forms import WatchForm
 from app.forms import*
@@ -23,14 +22,13 @@ def index(request):
         
     }
     return render(request,'index.html',data)
+
 def signup(request):
-   
-        
     if request.method =='POST':
         username=request.POST.get('username')
         email=request.POST.get('email')
-        password1=request.POST.get('pass')
-        password2=request.POST.get('cpass')
+        password1=request.POST.get('pass1')
+        password2=request.POST.get('cpass1')
         if password1==password2:
             if User.objects.filter(username=username,email=email).exists():
                 messages.info(request,'username already exists!!!!')
@@ -43,8 +41,7 @@ def signup(request):
             print('wrong password')
     return render(request,'signup.html')
 
-def user_login(request):
-
+def user_login (request):
     if request.method=='POST':
         username=request.POST.get('username')
         password1=request.POST.get('pass1')
@@ -55,8 +52,15 @@ def user_login(request):
         else:
             messages.info(request,'user not exists')
             print('user no exist')
-        
+            return redirect(user_login)
     return render(request,'login.html')
+
+
+
+def user_logout(request):
+    logout(request)
+    return redirect(user_login)
+
 def all(request):
     content=Watch.objects.all()
     data={
