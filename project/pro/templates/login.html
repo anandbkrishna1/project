@@ -196,14 +196,14 @@
                     {% csrf_token %}
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="User name / Email" name="username">
+                        <input type="text" class="login__input" placeholder="User name" name="username">
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password" name="pass">
+                        <input type="password" class="login__input" placeholder="Password" name="pass1">
                     </div>
-                    <button class="button login__submit">
-                        <span class="button__text"><a class="btn"  href="{% url 'home' %}" style="text-decoration: none;">Log in now</a></span>
+                    <button class="button login__submit" type="submit">
+                      Log in now
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>				
                 </form>

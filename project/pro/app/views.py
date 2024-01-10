@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import login_required
 from .models import Watch
 from .forms import WatchForm
 from app.forms import*
@@ -16,11 +16,16 @@ from app.forms import*
 
 def index(request):
     content=Watch.objects.all()
+    d=User.objects.all()
     data={
-        'result':content
+        'result':content,
+        'user':d
+        
     }
     return render(request,'index.html',data)
 def signup(request):
+   
+        
     if request.method =='POST':
         username=request.POST.get('username')
         email=request.POST.get('email')
@@ -38,7 +43,8 @@ def signup(request):
             print('wrong password')
     return render(request,'signup.html')
 
-def user_login (request):
+def user_login(request):
+
     if request.method=='POST':
         username=request.POST.get('username')
         password1=request.POST.get('pass1')
@@ -49,9 +55,8 @@ def user_login (request):
         else:
             messages.info(request,'user not exists')
             print('user no exist')
-            return redirect(user_login)
+        
     return render(request,'login.html')
-
 def all(request):
     content=Watch.objects.all()
     data={

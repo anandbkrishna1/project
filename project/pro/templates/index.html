@@ -315,7 +315,11 @@
             <a  class="o" href="#" style="color: black;">STORE</a>
             <a  class="o" href="#" style="color: black;">CONTACT</a>
             <a  class="o" href="{% url 'signup' %}" style="color: black;">LOGIN</a>
-            
+            {% if request.user.is_authenticated %}
+            <h3>{{request.user.username}}</h3>
+            {% else %}
+            <h3>visitor</h3>
+            {% endif %}            
         </div>
     </div>
     <hr>
